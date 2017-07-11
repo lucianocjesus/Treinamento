@@ -10,9 +10,9 @@ namespace Treinamento.Service.Repositories
     {
         private readonly ICustomerRepository _repository;
 
-        public CustomerServices()
+        public CustomerServices(ICustomerRepository customerRepository)
         {
-            _repository = new CustomerRepository();
+            _repository = customerRepository;
         }
 
         public IList<Customer> GetByRange(int skip = 0, int take = 25)

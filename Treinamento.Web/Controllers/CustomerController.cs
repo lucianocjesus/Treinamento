@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 using Treinamento.Domain.Entities;
 using Treinamento.Domain.Repositories.Services;
-using Treinamento.Service.Repositories;
 
 namespace Treinamento.Web.Controllers
 {
@@ -9,9 +8,9 @@ namespace Treinamento.Web.Controllers
     {
         private readonly ICustomerService _service;
 
-        public CustomerController()
+        public CustomerController(ICustomerService service)
         {
-            _service = new CustomerServices();
+            _service = service;
         }
 
         public ActionResult Index()

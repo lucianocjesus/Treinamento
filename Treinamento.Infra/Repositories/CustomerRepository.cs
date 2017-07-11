@@ -9,7 +9,12 @@ namespace Treinamento.Infra.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
-        private readonly AppDataContext _appDataContext = new AppDataContext();
+        private readonly AppDataContext _appDataContext;
+
+        public CustomerRepository(AppDataContext appDataContext)
+        {
+            _appDataContext = appDataContext;
+        }
 
         public IList<Customer> GetByRange(int skip = 0, int take = 25)
         {
