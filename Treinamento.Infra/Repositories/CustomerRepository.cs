@@ -29,20 +29,17 @@ namespace Treinamento.Infra.Repositories
         public void Save(Customer customer)
         {
             _appDataContext.Customers.Add(customer);
-            _appDataContext.SaveChanges();
         }
 
         public void Update(Customer customer)
         {
             _appDataContext.Entry(customer).State = EntityState.Modified;
-            _appDataContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var customer = GetById(id);
             _appDataContext.Customers.Remove(customer);
-            _appDataContext.SaveChanges();
         }
 
         public void Dispose()
